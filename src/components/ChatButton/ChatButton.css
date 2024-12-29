@@ -1,0 +1,32 @@
+/* src/ChatButton.css */
+.chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px; /* Adjust for slightly rounded corners */
+  padding: 1px 40px; /* Padding for a thin rectangular shape */
+  font-size: 16px; /* Adjust font size for a thinner button */
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+.chat-button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+  box-shadow: 0 10px 10px rgba(255, 255, 255, 0.1);
+}
+
+.chat-button:focus {
+  outline: none;
+}
+
+.chat-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
+}

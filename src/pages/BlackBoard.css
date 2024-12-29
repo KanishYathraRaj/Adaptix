@@ -1,0 +1,15 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+/* src/AnimatedText.css */
+.animated-text {
+    font-family: system-ui, sans-serif;
+    font-size: 50px; /* Adjust size as needed */
+    color: #ffffff; /* White text for contrast on black background */
+    text-align: center;
+    font-weight: bold;
+    margin: 20px auto;
+    width: 100%;
+}
