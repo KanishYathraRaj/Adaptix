@@ -14,9 +14,12 @@ const BlackBoard = () => {
     <>
       <div className="editable">
         <p class="animated-text">Welcome to Adaptix</p>
-        <p class="animated-text">Adapt this blackboard the way you need</p>
+        <p class="animated-text">
+          <span class="sculpt">Sculpt</span>&nbsp; or &nbsp;
+          <span class="scribble">Scribble</span>&nbsp; the &nbsp;
+          <span class="blackboard">Blackboard</span>
+        </p>
       </div>
-
       <div className="non-editable">
         <ChatButton toggleChat={toggleChat} />
         {isChatOpen && <ChatWindow closeChat={closeChat} />}
