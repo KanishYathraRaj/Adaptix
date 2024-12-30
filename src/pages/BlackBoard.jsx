@@ -11,13 +11,17 @@ const BlackBoard = () => {
   const closeChat = () => setIsChatOpen(false);
 
   return (
-    <div className="BlackBoard typing-text">
-      <p class="animated-text">Welcome to Adaptix</p>
-      <p class="animated-text">Adapt this blackboard as you want</p>
+    <>
+      <div className="editable">
+        <p class="animated-text">Welcome to Adaptix</p>
+        <p class="animated-text">Adapt this blackboard the way you need</p>
+      </div>
 
-      <ChatButton toggleChat={toggleChat} />
-      {isChatOpen && <ChatWindow closeChat={closeChat} />}
-    </div>
+      <div className="non-editable">
+        <ChatButton toggleChat={toggleChat} />
+        {isChatOpen && <ChatWindow closeChat={closeChat} />}
+      </div>
+    </>
   );
 }
 

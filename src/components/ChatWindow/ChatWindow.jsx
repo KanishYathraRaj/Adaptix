@@ -2,12 +2,15 @@
 import React, { useState } from 'react';
 import './ChatWindow.css';
 
+import { getCode } from '../CodeGeneration/CodeGeneration';
+
 const ChatWindow = ({ closeChat }) => {
   const [messages, setMessages] = useState([]);
 
   const handleSend = (event) => {
     event.preventDefault();
     const newMessage = event.target.elements.message.value;
+    getCode(newMessage);
     setMessages([...messages, { text: newMessage, sender: 'user' }]);
     event.target.elements.message.value = '';
   };
