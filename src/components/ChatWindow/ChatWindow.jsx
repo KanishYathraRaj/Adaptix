@@ -1,4 +1,3 @@
-// src/ChatWindow.js
 import React, { useState } from 'react';
 import './ChatWindow.css';
 
@@ -10,20 +9,23 @@ const ChatWindow = ({ closeChat }) => {
   const handleSend = (event) => {
     event.preventDefault();
     const newMessage = event.target.elements.message.value;
-    getCode(newMessage);
     setMessages([...messages, { text: newMessage, sender: 'user' }]);
+    getCode(newMessage);
     event.target.elements.message.value = '';
   };
 
   return (
     <div className="chat-window">
       <div className="chat-header">
-        <button className="close-btn" onClick={closeChat}>X</button>
-        <h3>Chat with us</h3>
+        <h3>👋 Let's Chat</h3>
+        <button className="close-btn" onClick={closeChat}>
+          ✕
+        </button>
       </div>
       <div className="chat-body">
         {messages.map((message, index) => (
           <div key={index} className={`message ${message.sender}`}>
+            {message.sender === 'user' ? '🧑‍💻 ' : '🤖 '}
             {message.text}
           </div>
         ))}
@@ -32,10 +34,10 @@ const ChatWindow = ({ closeChat }) => {
         <input
           type="text"
           name="message"
-          placeholder="Type a message..."
+          placeholder="Type something..."
           required
         />
-        <button type="submit">Send</button>
+        <button type="submit">🚀</button>
       </form>
     </div>
   );

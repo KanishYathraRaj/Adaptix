@@ -65,8 +65,10 @@ async function generateCode(pageSource,prompt) {
           4. Include ALL necessary code including imports and dependencies
           3. Each element will be given a unique identifier
           5. Respond ONLY in this exact format:
+          6. make it visually appealing.
+          7. if the query is related to teaching them , then respond with proper answer with proper styles and formatting added to it.
 
-          Updated Webpage Source:
+          Format:
           <div>
             updated Webpage source
           <div>
