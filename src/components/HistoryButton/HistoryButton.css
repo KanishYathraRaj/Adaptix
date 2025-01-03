@@ -1,0 +1,32 @@
+/* src/ChatButton.css */
+.history-button {
+    position: fixed;
+    top: 10px;
+    left: 5px;
+    background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+    color: #ffffff;
+    border: none;
+    border-radius:10px; /* Adjust for slightly rounded corners */
+    font-size: 16px; /* Adjust font size for a thinner button */
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .history-button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+    box-shadow: 0 10px 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  .history-button:focus {
+    outline: none;
+  }
+  
+  .history-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
+  }
+  
