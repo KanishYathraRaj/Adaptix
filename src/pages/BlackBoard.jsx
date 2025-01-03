@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import ChatButton from '../components/ChatButton/ChatButton';
 import ChatWindow from '../components/ChatWindow/ChatWindow';
 import HistoryButton from '../components/HistoryButton/HistoryButton';
+import HistoryWindow from '../components/HistoryWindow/HistoryWindow';
 import './BlackBoard.css';
 
 const BlackBoard = () => {
@@ -27,7 +28,7 @@ const BlackBoard = () => {
         <ChatButton toggleChat={toggleChat} />
         {isChatOpen && <ChatWindow closeChat={closeChat} />}
         {isHistoryButtonOpen && <HistoryButton toggleChat={toggleHistory} />}
-        {/* {isHistoryOpen && <HistoryWindow closeChat={closeHistory , toogleHistoryButton */}
+        {isHistoryOpen && <HistoryWindow closeHistory={closeHistory} isOpen={isHistoryOpen} toggleHistoryButton={toggleHistoryButton} />}  
       </div>
     </>
   );
