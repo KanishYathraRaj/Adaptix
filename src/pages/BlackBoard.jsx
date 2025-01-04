@@ -45,8 +45,8 @@ const BlackBoard = () => {
       </div>
       <div className="non-editable">
         <ChatButton toggleChat={toggleChat} />
-        {isChatOpen && 
-        <ChatWindow 
+        {isChatOpen &&
+        <ChatWindow
           closeChat={closeChat} 
           toggleCodeGenerated={toggleCodeGenerated} 
           code={generatedCode} 
@@ -55,7 +55,12 @@ const BlackBoard = () => {
           setMessages={setMessages}
         />}
         {isHistoryButtonOpen && <HistoryButton toggleChat={toggleHistory}  />}
-        {isHistoryOpen && <HistoryWindow closeHistory={closeHistory} isOpen={isHistoryOpen} toggleHistoryButton={toggleHistoryButton} />}  
+        {isHistoryOpen && 
+        <HistoryWindow 
+          closeHistory={closeHistory}
+          isOpen={isHistoryOpen}
+          toggleHistoryButton={toggleHistoryButton}
+        />}  
       </div>
     </div>
   );

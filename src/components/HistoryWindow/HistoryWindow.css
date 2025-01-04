@@ -12,10 +12,11 @@
     font-family: 'Roboto', Arial, sans-serif;
     z-index: 1000;
     transition: left 2s ease;
+    font-family: system-ui, sans-serif;
 }
 
 .history-window.open {
-    left: 0; /* Fully visible */
+    left: 0;
 }
 
 .history-close-btn {
@@ -32,5 +33,59 @@
 }
 
 .history-close-btn:hover {
-    color: #ff5733; /* Add a hover effect */
+    color: #ff5733;
 }
+
+.sidebar-title {
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient(90deg, #0077ff, #00d5ff, #ffcc00, #7300ff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300%;
+    animation: gradientMove 6s infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0%; }
+    50% { background-position: 100%; }
+    100% { background-position: 0%; }
+}
+
+.new-chat {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    color: white;
+    margin: 10px;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 2px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+  
+.new-chat:hover {
+    background-color: #272626;
+    transform: scale(1.03);
+}
+  
+.new-chat-icon {
+    font-size: 25px;
+    margin: 0 15px;
+    color: #ffffff;
+}
+  
+.new-chat-text {
+    flex: 1;
+}
+  
+.history-title {
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0px 10px 10px 10px;
+    padding-left:5px;
+}
+

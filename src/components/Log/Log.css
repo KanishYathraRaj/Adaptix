@@ -1,0 +1,17 @@
+.log {
+    color: #fff;
+    border-radius: 10px;
+    margin: 0px 15px;
+    height: 40px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 15px;
+}
+
+.log:hover {
+    background-color: #201f1f;
+    transform: scale(1.05);
+}

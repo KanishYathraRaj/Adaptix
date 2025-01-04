@@ -11,47 +11,27 @@ const ChatWindow = ({ closeChat, toggleCodeGenerated, code, setCode , messages ,
     event.preventDefault();
     const newMessage = event.target.elements.message.value;
 
-    // Add the user's message to the chat
     setMessages([...messages, { text: newMessage, sender: 'user' }]);
 
-    // Set loading state and add loading message to chat
     setLoading(true);
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      { text: 'Loading...', sender: 'bot' },
-    ]);
+    setMessages((prevMessages) => [...prevMessages,{ text: 'Loading...', sender: 'bot' },]);
 
     try {
-      // Call getCode to generate code
+      event.target.elements.message.value = '';
       await getCode(newMessage, code, setCode);
       toggleCodeGenerated();
 
-      // Remove the loading message
-      setMessages((prevMessages) =>
-        prevMessages.filter((message) => message.text !== 'Loading...')
-      );
+      setMessages((prevMessages) => prevMessages.filter((message) => message.text !== 'Loading...'));
+      setMessages((prevMessages) => [...prevMessages,{ text: 'Code generation complete!', sender: 'bot' },]);
 
-      // Add bot's response to the chat
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { text: 'Code generation complete!', sender: 'bot' },
-      ]);
     } catch (error) {
       console.error(error);
-      setMessages((prevMessages) =>
-        prevMessages.filter((message) => message.text !== 'Loading...')
-      );
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { text: 'Failed to generate code.', sender: 'bot' },
-      ]);
+      setMessages((prevMessages) => prevMessages.filter((message) => message.text !== 'Loading...'));
+      setMessages((prevMessages) => [...prevMessages,{ text: 'Failed to generate code.', sender: 'bot' },]);
+
     } finally {
-      // Remove the loading state
       setLoading(false);
     }
-
-    // Clear the input field
-    event.target.elements.message.value = '';
   };
 
   return (
