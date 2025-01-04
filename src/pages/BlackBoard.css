@@ -1,8 +1,8 @@
-body {
-    background-color: rgb(15, 15, 15);
-    color: white;
+body{
+  background-color: rgb(15, 15, 15);
 }
 .animated-text {
+  color: white;
   padding-top: 30vh;
   font-family: system-ui, sans-serif;
   font-size: 60px;
@@ -19,6 +19,7 @@ body {
 }
 
 .animated-text2 {
+  color: white;
   font-family: system-ui, sans-serif;
   font-size: 60px;
   color: #ffffff;

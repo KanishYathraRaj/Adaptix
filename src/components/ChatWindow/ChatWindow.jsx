@@ -3,14 +3,54 @@ import './ChatWindow.css';
 
 import { getCode } from '../CodeGeneration/CodeGeneration';
 
-const ChatWindow = ({ closeChat }) => {
-  const [messages, setMessages] = useState([]);
+const ChatWindow = ({ closeChat, toggleCodeGenerated, code, setCode , messages , setMessages}) => {
+  
+  const [loading, setLoading] = useState(false);
 
-  const handleSend = (event) => {
+  const handleSend = async (event) => {
     event.preventDefault();
     const newMessage = event.target.elements.message.value;
+
+    // Add the user's message to the chat
     setMessages([...messages, { text: newMessage, sender: 'user' }]);
-    getCode(newMessage);
+
+    // Set loading state and add loading message to chat
+    setLoading(true);
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { text: 'Loading...', sender: 'bot' },
+    ]);
+
+    try {
+      // Call getCode to generate code
+      await getCode(newMessage, code, setCode);
+      toggleCodeGenerated();
+
+      // Remove the loading message
+      setMessages((prevMessages) =>
+        prevMessages.filter((message) => message.text !== 'Loading...')
+      );
+
+      // Add bot's response to the chat
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: 'Code generation complete!', sender: 'bot' },
+      ]);
+    } catch (error) {
+      console.error(error);
+      setMessages((prevMessages) =>
+        prevMessages.filter((message) => message.text !== 'Loading...')
+      );
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: 'Failed to generate code.', sender: 'bot' },
+      ]);
+    } finally {
+      // Remove the loading state
+      setLoading(false);
+    }
+
+    // Clear the input field
     event.target.elements.message.value = '';
   };
 
@@ -34,10 +74,13 @@ const ChatWindow = ({ closeChat }) => {
         <input
           type="text"
           name="message"
-          placeholder="Type something..."
+          placeholder={loading ? 'Please wait...' : 'Type something...'}
+          disabled={loading}
           required
         />
-        <button type="submit">🚀</button>
+        <button type="submit" disabled={loading}>
+          🚀
+        </button>
       </form>
     </div>
   );

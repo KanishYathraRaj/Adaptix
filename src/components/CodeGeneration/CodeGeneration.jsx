@@ -1,12 +1,14 @@
 
 
 
-export const getCode= async (prompt) => {
-  const source = getSource();
+export const getCode= async (prompt , code , setCode ) => {
+  // const source = getSource();
+  const source = code;
   if (source) {
     try {
       const generatedCode = await generateCode(source,prompt);
       console.log('Generated Code:', generatedCode);
+      setCode(generatedCode);
 
       const editableElement = document.querySelector('.editable');
       if (editableElement) {
